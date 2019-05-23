@@ -1,5 +1,10 @@
 package com.company;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+import java.io.*;
+import java.util.HashMap;
+
 /**
  * Noah Freriksen
  * 402535
@@ -9,10 +14,6 @@ package com.company;
  * with a count of how many times this word is in the text file
  */
 
-import java.util.Scanner;
-import java.io.*;
-import java.util.HashMap;
-
 public class Corpusreader {
 
     public static void main(String[] args) throws IOException {
@@ -21,7 +22,7 @@ public class Corpusreader {
         Scanner input = new Scanner(file);
         int count = 0;
 
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        HashMap<String, Integer> map = new HashMap<>();
 
         while (input.hasNext()){
 
@@ -33,8 +34,15 @@ public class Corpusreader {
             //if key does not exists, put 1 as value, otherwise sum 1
             //to the value linked to the word
             map.merge(word, 1, Integer::sum);
-
-
         }
+
+        //Store hashmap to textfile to create a dictionary
+
+        PrintWriter writer = new PrintWriter("Dictionary.txt", StandardCharsets.UTF_8);
+
+        for(String key : map.keySet()){
+            writer.println(key + " " + map.get(key));
+        }
+
     }
 }
