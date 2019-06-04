@@ -1,12 +1,15 @@
 package com.company;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Dictionary dict = new Dictionary("/home/noah/IdeaProjects/Java_2/Assignment1/Dictionary.txt");
-        dict.readDictionary();
-        System.out.print(dict.check("talbe"));
+        Interactor inte = new Interactor();
+        inte.correctFile("/home/noah/IdeaProjects/Java_2/Assignment1/text.txt");
+
+        inte.correctSentence();
 
     }
 }
