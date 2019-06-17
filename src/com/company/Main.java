@@ -8,8 +8,9 @@ public class Main {
 
         Interactor inte = new Interactor();
         inte.correctFile("/home/noah/IdeaProjects/Java_2/Assignment1/text.txt");
+        //inte.correctSentence();
 
-        inte.correctSentence();
+        //inte.correctSentence();
 
     }
 }
